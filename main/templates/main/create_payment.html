@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание платежа</title>
+</head>
+<body>
+    <h1>Покупка Item: {{ item.pk }}</h1>
+    <form id="payment-form" action="{% url 'main:create_payment' item.pk %}" method="post">
+        {% csrf_token %}
+        <h4>Вы уверенны что хотите купить данный товар?</h4>
+        <h5>Название: {{ item.name }}, <br>Описание: {{ item.description }}, <br>Сумма: {{ item.price }} {{ item.currency }}.</h5> 
+        <button type="submit">Оплатить</button>
+    </form>
+</body>
+</html>
